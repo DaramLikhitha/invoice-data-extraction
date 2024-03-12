@@ -6,3 +6,4 @@ PyPDF2
 pdf2Image
 python-dotenv
 openai
+opencv-python
