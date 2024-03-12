@@ -33,7 +33,6 @@ def extract_text_from_pdf(pdf_file):
         return text
     except Exception as e:
         return f"Error reading PDF: {str(e)}"
-    
 
 # Function to extract text from scanned PDF files
 def extract_text_from_pdf_img(pdf_file):
