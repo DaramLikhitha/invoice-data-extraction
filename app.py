@@ -44,8 +44,6 @@ def main():
 
     else:
         st.warning("Please upload a PDF file.")
-    
-
 
 if __name__ == "__main__":
     main()
