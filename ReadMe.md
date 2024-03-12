@@ -1,13 +1,13 @@
-# Invoice Data Extraction - MODEL-2
+# Invoice Data Extraction - MODEL-3
 
 ## Overview
 
-This project utilizes the OpenAI GPT-3.5-turbo model for extracting carrier names from single invoice images or PDFs.
+This project utilizes the OpenAI GPT-3.5-turbo model for extracting carrier names from multiple invoice images or PDFs.
 
-## Constraints
+## Benefits
 
-- Only one PDF or image should be processed at a time.
-- Incorrect responses may occur for some scanned PDFs, requiring formatting or enhancement.
+- Accepts multiple PDFs or images simultaneously.
+- Scanned PDFs are formatted/enhanced to provide accurate responses.
 
 ## Application
 
@@ -17,16 +17,15 @@ The application runs with Streamlit, providing a user-friendly interface for int
 
 ### Input
 
-- Accepts either a single invoice image or a PDF file.
+- Accepts multiple invoice images or PDF files.
 
 ### Output
 
-- Extracts the carrier name from the provided invoice.
+- Extracts the carrier/company name from the provided invoices.
 
-## Constraints and Enhancements
+## Constraints
 
-- The model may provide incorrect responses for some scanned PDFs.
-- Formatting or enhancement may be required for specific cases.
+- Only extracts the carrier/company name.
 
 ## How to Run
 To run the invoice data extraction, follow these steps:
@@ -58,7 +57,7 @@ To run the invoice data extraction, follow these steps:
 
 - Ensure that you have a valid OpenAI GPT-3.5-turbo API key configured.
 
-- For optimal performance, provide clear and well-scanned single invoice images or PDFs.
+- For optimal performance, provide clear and well-scanned multiple invoice images or PDFs.
 
 ## Contributing
 
