@@ -1,13 +1,8 @@
-# Invoice Data Extraction - MODEL-3
+# Invoice Data Extraction Tool
 
 ## Overview
 
-This project utilizes the OpenAI GPT-3.5-turbo model for extracting carrier names from multiple invoice images or PDFs.
-
-## Benefits
-
-- Accepts multiple PDFs or images simultaneously.
-- Scanned PDFs are formatted/enhanced to provide accurate responses.
+This project utilizes the OpenAI GPT-3.5-turbo model for extracting data from multiple invoice images or PDFs.
 
 ## Application
 
@@ -21,43 +16,27 @@ The application runs with Streamlit, providing a user-friendly interface for int
 
 ### Output
 
-- Extracts the carrier/company name from the provided invoices.
+- Extracts the invoice data from the provided invoices.
 
-## Constraints
+## Prerequisites
 
-- Only extracts the carrier/company name.
+Before running the tool, ensure you have the following installed:
 
-## How to Run
-To run the invoice data extraction, follow these steps:
+- Python 3.7 or later
+- Dependencies listed in `requirements.txt`
+- Tesseract OCR installed
+- Poppler installed and added to system path
 
-1. **Clone the Repository**:
-
-    ```bash
-    git clone https://github.com/DaramLikhitha/invoice-data-extraction.git
-    cd invoice-data-extraction
-    ```
-
-2. **Install Dependencies**:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. **Run with Streamlit**:
-
-    ```bash
-    streamlit run app.py
-    ```
-
-4. **Access the App**:
-
-   Open your web browser and navigate to [http://localhost:8501](http://localhost:8501).
+## Deployment
+You can access the deployed version of this tool here.
+For invoice carrier/company name extraction: https://invoice-carrier-name-extractor.streamlit.app/
+For invoice multi fields data extraction: https://invoice-multiple-data-extractor.streamlit.app/
+For invoice dynamic fields data extraction: https://invoice-dynamic-data-extractor.streamlit.app/
 
 ## Notes
 
-- Ensure that you have a valid OpenAI GPT-3.5-turbo API key configured.
+- Ensure that you have a valid OpenAI GPT-3.5-turbo API key configured in .env file.
 
-- For optimal performance, provide clear and well-scanned multiple invoice images or PDFs.
 
 ## Contributing
 
