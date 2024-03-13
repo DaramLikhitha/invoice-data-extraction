@@ -8,3 +8,4 @@ python-dotenv
 openai
 opencv-python
 opencv-contrib-python-headless
+pdf2image
