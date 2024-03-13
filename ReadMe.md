@@ -29,9 +29,9 @@ Before running the tool, ensure you have the following installed:
 
 ## Deployment
 You can access the deployed version of this tool here.
-For invoice carrier/company name extraction: https://invoice-carrier-name-extractor.streamlit.app/
-For invoice multi fields data extraction: https://invoice-multiple-data-extractor.streamlit.app/
-For invoice dynamic fields data extraction: https://invoice-dynamic-data-extractor.streamlit.app/
+- For invoice carrier/company name extraction: https://invoice-carrier-name-extractor.streamlit.app/
+- For invoice multi fields data extraction: https://invoice-multiple-data-extractor.streamlit.app/
+- For invoice dynamic fields data extraction: https://invoice-dynamic-data-extractor.streamlit.app/
 
 ## Notes
 
