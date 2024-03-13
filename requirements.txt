@@ -1,9 +1,0 @@
-streamlit
-pandas
-pytesseract
-pillow
-PyPDF2
-pdf2Image
-python-dotenv
-openai
-opencv-python
