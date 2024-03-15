@@ -12,7 +12,7 @@ import os
 import streamlit as st
 import tempfile
 
-path = f'C:/Program Files/poppler-23.11.0/Library/bin'
+# path = r'poppler-23.11.0/Library/bin'
 
 _ = load_dotenv(find_dotenv())
 
@@ -57,7 +57,7 @@ def extract_text_from_pdf(pdf_file):
 
 # Function to extract text from scanned PDF files
 def extract_text_from_pdf_img(pdf_file):
-    images = convert_from_path(pdf_file, poppler_path=path)
+    images = convert_from_path(pdf_file,)
 
     text = ""
     for i, image in enumerate(images):
