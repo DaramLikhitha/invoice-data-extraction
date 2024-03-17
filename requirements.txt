@@ -9,3 +9,4 @@ openai
 opencv-python
 opencv-contrib-python-headless
 pdf2image
+poppler-utils
