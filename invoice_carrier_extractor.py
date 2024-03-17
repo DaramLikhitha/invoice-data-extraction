@@ -104,7 +104,7 @@ def extracted_data(invoice_text):
 def main():
     st.set_page_config(page_title="Invoice Bot")
     st.title("Invoice Insights")
-    st.header("Your Easy-to-Use Invoice Data Extractor Tool")
+    st.header("Your Easy-to-Use Invoice Data Extracting Tool")
 
     uploaded_files = st.file_uploader("Choose a PDF or image file", type=["pdf", "png", "jpg", "jpeg"], accept_multiple_files=True)
     submit = st.button('Extract Data')
