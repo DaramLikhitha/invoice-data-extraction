@@ -15,6 +15,7 @@ import tempfile
 # path = r'C:/Program Files/poppler-23.11.0/Library/bin'
 path = r'poppler-23.11.0/Library/bin'
 os.environ['PATH'] = path
+st.secrets['PATH']
 
 _ = load_dotenv(find_dotenv())
 
