@@ -12,7 +12,6 @@ import streamlit as st
 import tempfile
 
 path = f'C:/Program Files/poppler-23.11.0/Library/bin'
-os.environ['PATH'] = path
 
 _ = load_dotenv(find_dotenv())
 
@@ -25,10 +24,12 @@ client = OpenAI(
 def additional_image_processing(image):
 
     image_np = np.array(image)
+
     resized_image = cv2.resize(image_np, (3100, 3600))
     gray = cv2.cvtColor(resized_image, cv2.COLOR_BGR2GRAY)
     blurred = cv2.GaussianBlur(gray, (5, 5), 0)
     _, thresh = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
     # st.image(thresh)
     return thresh
 
@@ -57,7 +58,7 @@ def extract_text_from_pdf(pdf_file):
 
 # Function to extract text from scanned PDF files
 def extract_text_from_pdf_img(pdf_file):
-    images = convert_from_path(pdf_file)
+    images = convert_from_path(pdf_file, poppler_path=path)
 
     text = ""
     for i, image in enumerate(images):
@@ -74,11 +75,15 @@ from tenacity import (
     wait_random_exponential,
 )  # for exponential backoff
 
-@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(3))
+@retry(wait=wait_random_exponential(min=1,max=60), stop=stop_after_attempt(3))
 # Function for GPT-3 interaction
 def extracted_data(invoice_text):
-    prompt = f"""Extract the carrier/company name from the following invoice text:\n\n{invoice_text}
-    \n\nCompany name:"""
+
+    prompt = f"""
+        Extract the carrier/company name from the following invoice text:
+        \n\n{invoice_text}
+        \n\nCompany name:
+        """
 
     chat_completion = client.chat.completions.create(
         messages=[
@@ -88,7 +93,7 @@ def extracted_data(invoice_text):
             }
         ],
         model="gpt-3.5-turbo-0301",
-        max_tokens=100,  # Adjust as needed
+        max_tokens=100,  
         temperature=0.1,
     )
 
@@ -103,6 +108,8 @@ def main():
     st.title("Invoice Data Extraction")
 
     uploaded_files = st.file_uploader("Choose a PDF or image file", type=["pdf", "png", "jpg", "jpeg"], accept_multiple_files=True)
+    submit = st.button('Extract Data')
+
     if uploaded_files is not None:
         invoices = []
         for uploaded_file in uploaded_files:
@@ -132,14 +139,13 @@ def main():
     else:
         st.warning("Please upload a PDF or image file.")
     
-    if st.button('Extract Data'):
+    if submit:
         st.subheader("Carrier name : ")
 
         for name,text in invoices:
             result = extracted_data(text)
             st.write(name)
             st.success(result)
-
 
 if __name__ == "__main__":
     main()
