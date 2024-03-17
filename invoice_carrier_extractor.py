@@ -11,8 +11,6 @@ import numpy as np
 import streamlit as st
 import tempfile
 
-# path = f'C:/Program Files/poppler-23.11.0/Library/bin'
-
 _ = load_dotenv(find_dotenv())
 
 client = OpenAI(
