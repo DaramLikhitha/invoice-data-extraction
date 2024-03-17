@@ -1,0 +1,11 @@
+streamlit
+pandas
+pytesseract
+pillow
+PyPDF2
+pdf2Image
+python-dotenv
+openai
+opencv-python
+opencv-contrib-python-headless
+pdf2image
