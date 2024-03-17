@@ -12,8 +12,6 @@ import streamlit as st
 import tempfile
 import pandas as pd
 
-path = f'C:/Program Files/poppler-23.11.0/Library/bin'
-
 _ = load_dotenv(find_dotenv())
 
 client = OpenAI(
@@ -59,7 +57,7 @@ def extract_text_from_pdf(pdf_file):
 
 # Function to extract text from scanned PDF files
 def extract_text_from_pdf_img(pdf_file):
-    images = convert_from_path(pdf_file, poppler_path=path)
+    images = convert_from_path(pdf_file)
 
     text = ""
     for i, image in enumerate(images):
@@ -118,7 +116,8 @@ def extracted_data(invoice_text):
 # Streamlit UI
 def main():
     st.set_page_config(page_title="Invoice Bot")
-    st.title("Invoice Data Extraction")
+    st.title("Invoice Insights")
+    st.subtitle("Your Easy-to-Use Invoice Data Extractor Tool")
 
     uploaded_files = st.file_uploader("Choose a PDF or image file", type=["pdf", "png", "jpg", "jpeg"], accept_multiple_files=True)
     submit = st.button('Extract Data')
@@ -156,13 +155,12 @@ def main():
         with st.spinner("Waiting..."):
 
             df = pd.DataFrame() 
-            st.subheader("Carrier name : ")
+            st.subheader("Invoice Data : ")
 
             for name,text in invoices:
 
                 result = extracted_data(text)
                 result = result.replace('null', 'None')
-                # st.success(result)
                 # Convert extracted data to a dictionary
                 data_df = eval(result)
 
@@ -173,7 +171,6 @@ def main():
                 st.table(df.iloc[-1])
                 st.markdown("---")
 
-            # st.table(df)
 
             data_as_csv= df.to_csv(index=False).encode("utf-8")
             st.download_button(
