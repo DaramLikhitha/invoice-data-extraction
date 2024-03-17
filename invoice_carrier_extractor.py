@@ -59,8 +59,7 @@ def extract_text_from_pdf(pdf_file):
 # Function to extract text from scanned PDF files
 def extract_text_from_pdf_img(pdf_file):
     images = convert_from_path(pdf_file,poppler_path= path)
-    images = convert_from_path(pdf_file,poppler_path= path)
-
+    
     text = ""
     for i, image in enumerate(images):
         # Apply additional OpenCV processing
